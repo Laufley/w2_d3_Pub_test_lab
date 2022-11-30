@@ -35,9 +35,9 @@ class Pub:
                 self.increase_money_in_till(drink.price)
                 self.remove_drink_from_drink_list(drink)
             else:
-                return "go home, you're drunk!"
+                return "go home, you're drunk"
         else:
-            return "you're underaged!"
+            return "HAIYAA, you're underaged"
 
         
     
