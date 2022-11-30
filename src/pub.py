@@ -16,7 +16,28 @@ class Pub:
     def remove_drink_from_drink_list(self, drink):
         self.list_of_drinks.remove(drink)
 
+    def check_customer_age(self, customer):
+        if customer.age >= 18:
+            return True
+        else: 
+            return False
+
+    def check_drunkness_of_customer(self, customer):
+        if customer.drunkness <= 11:
+            return True
+        else: 
+            return False
+
     def sell_drink_to_customer(self, drink, customer):
-        customer.reduce_money_in_wallet(drink.price)
-        self.increase_money_in_till(drink.price)
-        self.remove_drink_from_drink_list(drink)
+        if self.check_customer_age(customer) == True:
+            if self.check_drunkness_of_customer(customer) == True:
+                customer.reduce_money_in_wallet(drink.price)
+                self.increase_money_in_till(drink.price)
+                self.remove_drink_from_drink_list(drink)
+            else:
+                return "go home, you're drunk!"
+        else:
+            return "you're underaged!"
+
+        
+    
